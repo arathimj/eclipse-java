@@ -1,0 +1,21 @@
+import java.sql.Connection;
+
+public class Databases {
+	private Connection connect = null;
+	private PreparedStatement preparedStatement = null;
+	private ResultSet resultSet = null;
+
+	final private String host = "localhost:3306/Student";
+	final private String user = "root";
+	final private String passwd = "destinyplays1!";
+
+	public static void main(String args[]) {
+		//System.out.println("hii");
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		connect = DriverManager.getConnection("jdbc:mysql://" + host + "?" + "user=" + user + "&password=" + passwd );
+		preparedStatement=connect.prepareStatement("select * from StudentTable;");
+		resultSet=preparedStatement.executeQuery();
+
+
+ }
+}
